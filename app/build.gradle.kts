@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.apollo)
 
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.dagger)
     id("kotlin-parcelize")
     kotlin("kapt")
 
