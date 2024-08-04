@@ -56,6 +56,17 @@ android {
     }
 }
 
+apollo{
+    service("first_time"){
+        packageName.set("src.main.graphql")
+        introspection{
+            endpointUrl = "https://countries.trevorblades.com/"
+            schemaFile.set(file("src/main/graphql/gaur/himanshu/graphql/schema.sdl"))
+        }
+    }
+}
+
+
 
 dependencies {
 
