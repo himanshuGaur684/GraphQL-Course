@@ -1,5 +1,6 @@
 package gaur.himanshu.graphql.presentation.continents
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,7 +21,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 @Composable
 fun ContinentScreen(
     modifier: Modifier = Modifier,
-    continentsViewModel: ContinentsViewModel
+    continentsViewModel: ContinentsViewModel,
+    onClick: (String) -> Unit
 ) {
 
     val uiState by continentsViewModel.uiState.collectAsStateWithLifecycle()
@@ -43,7 +45,9 @@ fun ContinentScreen(
         LazyColumn(modifier = Modifier.fillMaxSize()) {
 
             items(list) {
-                Card(modifier = Modifier.padding(8.dp).fillMaxWidth()) {
+                Card(modifier = Modifier.clickable { onClick.invoke(it.code) }
+                    .padding(8.dp)
+                    .fillMaxWidth()) {
                     Text(
                         text = it.name,
                         style = MaterialTheme.typography.headlineSmall,

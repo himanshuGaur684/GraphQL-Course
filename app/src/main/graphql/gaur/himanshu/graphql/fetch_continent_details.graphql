@@ -1,0 +1,12 @@
+query FetchDetails($code:ID!){
+    continent(code: $code){
+        name,
+        countries {
+            name,
+            emoji,
+            languages {
+                name
+            }
+        }
+    }
+}

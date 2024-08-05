@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import gaur.himanshu.graphql.presentation.continents.ContinentScreen
 import gaur.himanshu.graphql.presentation.continents.ContinentsViewModel
+import gaur.himanshu.graphql.presentation.navigation.MainNavigation
 import gaur.himanshu.graphql.ui.theme.GraphQLTheme
 
 @AndroidEntryPoint
@@ -25,10 +26,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GraphQLTheme {
-                val continentViewModel = hiltViewModel<ContinentsViewModel>()
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Surface(modifier = Modifier.padding(innerPadding)) {
-                        ContinentScreen(continentsViewModel = continentViewModel)
+                        MainNavigation()
                     }
                 }
             }
